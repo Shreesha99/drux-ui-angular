@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -9,4 +9,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
-export class SidebarComponent {}
+export class SidebarComponent {
+  // Accept the theme state from parent (NavbarComponent)
+  @Input() isDarkTheme: boolean = false;
+}

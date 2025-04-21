@@ -6,14 +6,36 @@
 
 .nav-link {
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  border-radius: 10px;
+}
 
-  &:hover {
-    background-color: #e9ecef;
-    color: #0d6efd;
-  }
+.nav-link:hover {
+  background-color: #e9ecef;
+  color: #0d6efd;
 }
 
 .nav-link.active {
   background-color: #0d6efd;
   color: #fff;
+}
+
+.list-group-item .nav-link.active {
+  border-radius: 10px;
+}
+
+/* Dark mode styles */
+.bg-dark {
+  background-color: #343a40 !important;
+}
+
+.text-light {
+  color: #f8f9fa !important;
+}
+
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+.text-dark {
+  color: #212529 !important;
 }

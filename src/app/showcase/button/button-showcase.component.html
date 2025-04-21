@@ -1,113 +1,126 @@
-<div class="py-3 px-3">
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a
-        class="nav-link"
-        [class.active]="activeTab === 'preview'"
-        (click)="setActiveTab('preview')"
-        href="javascript:void(0)"
-        >Preview</a
-      >
-    </li>
-    <li class="nav-item">
-      <a
-        class="nav-link"
-        [class.active]="activeTab === 'code'"
-        (click)="setActiveTab('code')"
-        href="javascript:void(0)"
-        >Code</a
-      >
-    </li>
-    <li class="nav-item">
-      <a
-        class="nav-link"
-        [class.active]="activeTab === 'variants'"
-        (click)="setActiveTab('variants')"
-        href="javascript:void(0)"
-        >Variants</a
-      >
-    </li>
-  </ul>
+<div class="p-3">
+  <!-- Tabs Header -->
+  <app-tabs
+    class="w-100"
+    [tabs]="tabs"
+    [activeTab]="activeTab"
+    (activeTabChange)="activeTab = $event"
+  ></app-tabs>
 
-  <!-- Preview Tab -->
-  <div
-    class="tab-pane fade"
-    [ngClass]="{ 'show active': activeTab === 'preview' }"
-    role="tabpanel"
-  >
+  <!-- Tabs Content -->
+  <div class="mt-4 w-100">
+    @if (activeTab === 'preview') {
     <div class="mb-3">
       <h5>Primary Button</h5>
       <dr-button label="Primary" variant="primary"></dr-button>
     </div>
-  </div>
+    } @if (activeTab === 'code') {
+    <div class="position-relative">
+      <app-copy-button
+        class="position-absolute top-0 end-0 m-2"
+        [code]="buttonCode"
+      ></app-copy-button>
 
-  <!-- Code Tab -->
-  <div
-    class="tab-pane fade"
-    [ngClass]="{ 'show active': activeTab === 'code' }"
-    role="tabpanel"
-  >
-    <div class="mb-3 position-relative">
-      <h5>Copy Button Code</h5>
-
-      <div class="position-relative">
-        <pre class="position-relative">
-<code class="language-html">
-&lt;dr-button label="Primary" variant="primary"&gt;&lt;/dr-button&gt;
-&lt;dr-button label="Loading..." [loading]="true" variant="primary"&gt;&lt;/dr-button&gt;
-&lt;dr-button label="Disabled" [disabled]="true" variant="secondary"&gt;&lt;/dr-button&gt;
-&lt;dr-button label="Success" variant="success"&gt;
-  &lt;i class="bi bi-check"&gt;&lt;/i&gt;
-&lt;/dr-button&gt;
-</code>
-      </pre>
-
-        <button
-          class="btn btn-sm btn-light border position-absolute top-0 end-0 m-2"
-          (click)="copyCode()"
-          [attr.title]="copied ? 'Copied!' : 'Copy Code'"
-        >
-          <i
-            class="bi"
-            [ngClass]="copied ? 'bi-check-lg text-success' : 'bi-clipboard'"
-          ></i>
-        </button>
-      </div>
+      <pre class="bg-light p-3 rounded border">
+          <code class="language-html">{{ buttonCode }}</code>
+        </pre>
     </div>
-  </div>
-
-  <!-- Variants Tab -->
-  <div
-    class="tab-pane fade"
-    [ngClass]="{ 'show active': activeTab === 'variants' }"
-    role="tabpanel"
-  >
+    } @if (activeTab === 'variants') {
     <h5>Button Variants</h5>
-    <div class="row">
-      <div class="col-4 mb-3">
-        <h6>Primary</h6>
-        <dr-button label="Primary" variant="primary"></dr-button>
-      </div>
-      <div class="col-4 mb-3">
-        <h6>Secondary</h6>
-        <dr-button label="Secondary" variant="secondary"></dr-button>
-      </div>
-      <div class="col-4 mb-3">
-        <h6>Success</h6>
-        <dr-button label="Success" variant="success"></dr-button>
-      </div>
-      <div class="col-4 mb-3">
-        <h6>Warning</h6>
-        <dr-button label="Warning" variant="warning"></dr-button>
-      </div>
-      <div class="col-4 mb-3">
-        <h6>Danger</h6>
-        <dr-button label="Danger" variant="danger"></dr-button>
-      </div>
-      <div class="col-4 mb-3">
-        <h6>Info</h6>
-        <dr-button label="Info" variant="info"></dr-button>
-      </div>
-    </div>
+    <table class="table table-bordered w-100">
+      <thead>
+        <tr>
+          <th>Variant</th>
+          <th>Button Example</th>
+          <th>Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Primary -->
+        <tr>
+          <td>Primary</td>
+          <td><dr-button label="Primary" type="primary" [loading]="false" size="md" [block]="false"></dr-button></td>
+          <td><code>type="primary"</code></td>
+        </tr>
+
+        <!-- Secondary -->
+        <tr>
+          <td>Secondary</td>
+          <td><dr-button label="Secondary" type="secondary" [loading]="false" size="md" [block]="false"></dr-button></td>
+          <td><code>type="secondary"</code></td>
+        </tr>
+
+        <!-- Success -->
+        <tr>
+          <td>Success</td>
+          <td><dr-button label="Success" type="success" [loading]="false" size="md" [block]="false"></dr-button></td>
+          <td><code>type="success"</code></td>
+        </tr>
+
+        <!-- Warning -->
+        <tr>
+          <td>Warning</td>
+          <td><dr-button label="Warning" type="warning" [loading]="false" size="md" [block]="false"></dr-button></td>
+          <td><code>type="warning"</code></td>
+        </tr>
+
+        <!-- Danger -->
+        <tr>
+          <td>Danger</td>
+          <td><dr-button label="Danger" type="danger" [loading]="false" size="md" [block]="false"></dr-button></td>
+          <td><code>type="danger"</code></td>
+        </tr>
+
+        <!-- Info -->
+        <tr>
+          <td>Info</td>
+          <td><dr-button label="Info" type="info" [loading]="false" size="md" [block]="false"></dr-button></td>
+          <td><code>type="info"</code></td>
+        </tr>
+
+        <!-- Light -->
+        <tr>
+          <td>Light</td>
+          <td><dr-button label="Light" type="light" [loading]="false" size="md" [block]="false"></dr-button></td>
+          <td><code>type="light"</code></td>
+        </tr>
+
+        <!-- Dark -->
+        <tr>
+          <td>Dark</td>
+          <td><dr-button label="Dark" type="dark" [loading]="false" size="md" [block]="false"></dr-button></td>
+          <td><code>type="dark"</code></td>
+        </tr>
+
+        <!-- With [loading] -->
+        <tr>
+          <td>[loading] State</td>
+          <td><dr-button label="[loading]" type="primary" [loading]="true" size="md" [block]="false"></dr-button></td>
+          <td><code>[loading]="true"</code></td>
+        </tr>
+
+        <!-- Small Size -->
+        <tr>
+          <td>Small Size</td>
+          <td><dr-button label="Small" type="primary" [loading]="false" size="sm" [block]="false"></dr-button></td>
+          <td><code>size="sm"</code></td>
+        </tr>
+
+        <!-- Large Size -->
+        <tr>
+          <td>Large Size</td>
+          <td><dr-button label="Large" type="primary" [loading]="false" size="lg" [block]="false"></dr-button></td>
+          <td><code>size="lg"</code></td>
+        </tr>
+
+        <!-- [block] Button -->
+        <tr>
+          <td>[block] Button</td>
+          <td><dr-button label="[block]" type="primary" [loading]="false" size="md" [block]="true"></dr-button></td>
+          <td><code>[block]="true"</code></td>
+        </tr>
+      </tbody>
+    </table>
+    }
   </div>
 </div>

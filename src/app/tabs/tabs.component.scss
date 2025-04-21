@@ -1,0 +1,7 @@
+.nav-tabs .nav-item {
+  margin-right: 15px; /* Adjust the gap between tabs */
+}
+
+.nav-tabs .nav-item:last-child {
+  margin-right: 0; /* Ensure no gap after the last tab */
+}

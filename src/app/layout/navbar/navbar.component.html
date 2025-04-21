@@ -1,4 +1,5 @@
 <nav
+  [ngClass]="isDarkTheme ? 'navbar-dark bg-dark' : 'navbar-light bg-light'"
   class="navbar px-4 d-flex justify-content-between align-items-center border-top border-dark border-opacity-25 sticky-top"
   style="border-style: dotted"
 >
@@ -6,7 +7,7 @@
   <div class="d-flex align-items-center gap-3">
     <a [routerLink]="['/welcome']">
       <img
-        src="https://druxui.s3.ap-south-1.amazonaws.com/just-logo-dark.png"
+        [src]="isDarkTheme ? 'https://druxui.s3.ap-south-1.amazonaws.com/just-logo-dark.png' : 'https://druxui.s3.ap-south-1.amazonaws.com/just-logo.png'"
         alt="Drux Logo"
         width="36"
         height="36"
@@ -45,16 +46,17 @@
 
     <!-- Keyboard Shortcut Badge -->
     <span
-      class="position-absolute top-0 end-0 my-1 mx-4 badge bg-transparent text-dark fw-light fs-6"
+      class="position-absolute top-0 end-0 my-1 mx-4 badge bg-transparent fw-light fs-6 text-dark"
     >
       Ctrl/⌘ + K
     </span>
 
     <!-- Dropdown of filtered components -->
     <div
-      class="position-absolute bg-white shadow-sm rounded mt-1 z-3 w-100 hide-scrollbar"
+      class="position-absolute shadow-sm rounded mt-1 z-3 w-100 hide-scrollbar"
       *ngIf="filteredComponents.length > 0"
       style="max-height: 300px; overflow-y: auto"
+      [ngClass]="isDarkTheme ? 'bg-dark text-white' : 'bg-white text-dark'"
     >
       <ul class="list-group list-group-flush">
         <li
@@ -81,21 +83,29 @@
     }
   </style>
 
-<div class="d-flex align-items-center gap-3">
-  <!-- GitHub Link -->
-  <a href="https://github.com/Shreesha99" target="_blank" class="text-dark">
-    <i class="bi bi-github fs-5"></i>
-  </a>
+  <div class="d-flex align-items-center gap-3">
+    <!-- GitHub Link -->
+    <a href="https://github.com/Shreesha99" target="_blank" [ngClass]="isDarkTheme ? 'text-white' : 'text-dark'">
+      <i class="bi bi-github fs-5"></i>
+    </a>
 
-  <!-- Email Link -->
-  <a href="mailto:youremail@example.com" class="text-dark">
-    <i class="bi bi-envelope fs-5"></i>
-  </a>
+    <!-- Email Link -->
+    <a href="mailto:youremail@example.com" [ngClass]="isDarkTheme ? 'text-white' : 'text-dark'">
+      <i class="bi bi-envelope fs-5"></i>
+    </a>
 
-  <!-- Theme Toggle Button -->
-  <button (click)="toggleTheme()" class="btn btn-sm p-0 border-0" aria-label="Toggle Theme">
-    <i class="bi" [ngClass]="isDarkTheme ? 'bi-sun' : 'bi-moon'"></i> 
-  </button>
-</div>
-
+    <!-- Theme Toggle Button -->
+    <button (click)="toggleTheme()" class="btn btn-sm p-0 border-0" aria-label="Toggle Theme">
+      <i class="bi" 
+         [ngClass]="{
+            'bi-sun': isDarkTheme, 
+            'bi-moon': !isDarkTheme, 
+            'text-white': isDarkTheme, 
+            'text-dark': !isDarkTheme
+         }" 
+         class="fs-5"></i> <!-- Increase font size with fs-3 -->
+    </button>
+    
+    
+  </div>
 </nav>

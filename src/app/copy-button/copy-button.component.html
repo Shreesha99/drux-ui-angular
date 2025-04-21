@@ -1,0 +1,7 @@
+<button
+  class="btn btn-sm btn-light border position-absolute top-0 end-0 m-2"
+  (click)="copyCode()"
+  [attr.title]="copied ? 'Copied!' : 'Copy Code'"
+>
+  <i class="bi" [ngClass]="copied ? 'bi-check-lg text-success' : 'bi-clipboard'"></i>
+</button>

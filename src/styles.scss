@@ -1,3 +1,13 @@
+/* styles.scss */
+body {
+  font-family: 'Inter', sans-serif; /* Apply Inter font to the entire body */
+}
+
+/* Optional: Apply Inter font to all elements */
+* {
+  font-family: 'Inter', sans-serif !important; /* This ensures the font applies everywhere */
+}
+
 /* Light theme (default) */
 body.light-theme {
   background-color: white;

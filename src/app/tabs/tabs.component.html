@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item" *ngFor="let tab of tabs">
+    <a
+    class="nav-link"
+    [ngClass]="{ active: activeTab === tab.value }"
+    (click)="setActiveTab(tab.value)"
+    href="javascript:void(0)"
+  >
+    {{ tab.label }}
+  </a>
+  
+  </li>
+</ul>

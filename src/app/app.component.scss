@@ -6,12 +6,15 @@
 
 .d-flex {
   height: 100%; /* Ensure the sidebar and content area take full height */
+  width: 100%; /* Ensure the flex container spans the full width */
 }
 
 .container-fluid {
   height: 100%;
-  overflow: hidden; /* Prevent page-level scrolling */
+  width: 100%; /* Make sure the container spans the full width */
   display: flex;
+  padding-left: 0;  /* Optional: Remove extra padding if needed */
+  padding-right: 0; /* Optional: Remove extra padding if needed */
 }
 
 app-sidebar {

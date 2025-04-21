@@ -1,38 +1,29 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { DrButtonComponent } from 'drux-ui-angular';
+import { TabsComponent } from '../../tabs/tabs.component';
+import { CopyButtonComponent } from '../../copy-button/copy-button.component';
 
 @Component({
   selector: 'app-button-showcase',
   standalone: true,
-  imports: [DrButtonComponent, CommonModule],
+  imports: [
+    CommonModule,
+    DrButtonComponent,
+    TabsComponent,
+    CopyButtonComponent,
+  ],
   templateUrl: './button-showcase.component.html',
   styleUrls: ['./button-showcase.component.scss'],
 })
 export class ButtonShowcaseComponent {
-  activeTab: string = 'preview';
-  copied: boolean = false;
+  activeTab = 'preview';
 
-  setActiveTab(tab: string): void {
-    this.activeTab = tab;
-  }
+  tabs = [
+    { label: 'Preview', value: 'preview' },
+    { label: 'Code', value: 'code' },
+    { label: 'Variants', value: 'variants' },
+  ];
 
-  copyCode(): void {
-    const code = `<dr-button label="Primary" variant="primary"></dr-button>
-<dr-button label="Loading..." [loading]="true" variant="primary"></dr-button>
-<dr-button label="Disabled" [disabled]="true" variant="secondary"></dr-button>
-<dr-button label="Success" variant="success">
-  <i class="bi bi-check"></i>
-</dr-button>`;
-
-    const textarea = document.createElement('textarea');
-    textarea.value = code;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-
-    this.copied = true;
-    setTimeout(() => (this.copied = false), 2000);
-  }
+  buttonCode = `<dr-button label="Primary" variant="primary"></dr-button>`;
 }
