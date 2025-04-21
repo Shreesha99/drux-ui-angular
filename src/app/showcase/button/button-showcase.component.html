@@ -1,30 +1,57 @@
-<div class="py-3 px-3"><ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link" [class.active]="activeTab === 'preview'" (click)="setActiveTab('preview')" href="javascript:void(0)">Preview</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" [class.active]="activeTab === 'code'" (click)="setActiveTab('code')" href="javascript:void(0)">Code</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" [class.active]="activeTab === 'variants'" (click)="setActiveTab('variants')" href="javascript:void(0)">Variants</a>
-  </li>
-</ul>
+<div class="py-3 px-3">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [class.active]="activeTab === 'preview'"
+        (click)="setActiveTab('preview')"
+        href="javascript:void(0)"
+        >Preview</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [class.active]="activeTab === 'code'"
+        (click)="setActiveTab('code')"
+        href="javascript:void(0)"
+        >Code</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        [class.active]="activeTab === 'variants'"
+        (click)="setActiveTab('variants')"
+        href="javascript:void(0)"
+        >Variants</a
+      >
+    </li>
+  </ul>
 
-<!-- Preview Tab -->
-<div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'preview'}" role="tabpanel">
-  <div class="mb-3">
-    <h5>Primary Button</h5>
-    <dr-button label="Primary" variant="primary"></dr-button>
+  <!-- Preview Tab -->
+  <div
+    class="tab-pane fade"
+    [ngClass]="{ 'show active': activeTab === 'preview' }"
+    role="tabpanel"
+  >
+    <div class="mb-3">
+      <h5>Primary Button</h5>
+      <dr-button label="Primary" variant="primary"></dr-button>
+    </div>
   </div>
-</div>
 
-<!-- Code Tab -->
-<div class="tab-pane fade" [ngClass]="{ 'show active': activeTab === 'code' }" role="tabpanel">
-  <div class="mb-3 position-relative">
-    <h5>Copy Button Code</h5>
+  <!-- Code Tab -->
+  <div
+    class="tab-pane fade"
+    [ngClass]="{ 'show active': activeTab === 'code' }"
+    role="tabpanel"
+  >
+    <div class="mb-3 position-relative">
+      <h5>Copy Button Code</h5>
 
-    <div class="position-relative">
-      <pre class="position-relative">
+      <div class="position-relative">
+        <pre class="position-relative">
 <code class="language-html">
 &lt;dr-button label="Primary" variant="primary"&gt;&lt;/dr-button&gt;
 &lt;dr-button label="Loading..." [loading]="true" variant="primary"&gt;&lt;/dr-button&gt;
@@ -35,48 +62,52 @@
 </code>
       </pre>
 
-      <button
-        class="btn btn-sm btn-light border position-absolute top-0 end-0 m-2"
-        (click)="copyCode()"
-        [attr.title]="copied ? 'Copied!' : 'Copy Code'"
-      >
-        <i
-          class="bi"
-          [ngClass]="copied ? 'bi-check-lg text-success' : 'bi-clipboard'"
-        ></i>
-      </button>
+        <button
+          class="btn btn-sm btn-light border position-absolute top-0 end-0 m-2"
+          (click)="copyCode()"
+          [attr.title]="copied ? 'Copied!' : 'Copy Code'"
+        >
+          <i
+            class="bi"
+            [ngClass]="copied ? 'bi-check-lg text-success' : 'bi-clipboard'"
+          ></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variants Tab -->
+  <div
+    class="tab-pane fade"
+    [ngClass]="{ 'show active': activeTab === 'variants' }"
+    role="tabpanel"
+  >
+    <h5>Button Variants</h5>
+    <div class="row">
+      <div class="col-4 mb-3">
+        <h6>Primary</h6>
+        <dr-button label="Primary" variant="primary"></dr-button>
+      </div>
+      <div class="col-4 mb-3">
+        <h6>Secondary</h6>
+        <dr-button label="Secondary" variant="secondary"></dr-button>
+      </div>
+      <div class="col-4 mb-3">
+        <h6>Success</h6>
+        <dr-button label="Success" variant="success"></dr-button>
+      </div>
+      <div class="col-4 mb-3">
+        <h6>Warning</h6>
+        <dr-button label="Warning" variant="warning"></dr-button>
+      </div>
+      <div class="col-4 mb-3">
+        <h6>Danger</h6>
+        <dr-button label="Danger" variant="danger"></dr-button>
+      </div>
+      <div class="col-4 mb-3">
+        <h6>Info</h6>
+        <dr-button label="Info" variant="info"></dr-button>
+      </div>
     </div>
   </div>
 </div>
-
-<!-- Variants Tab -->
-<div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'variants'}" role="tabpanel">
-  <h5>Button Variants</h5>
-  <div class="row">
-    <div class="col-4 mb-3">
-      <h6>Primary</h6>
-      <dr-button label="Primary" variant="primary"></dr-button>
-    </div>
-    <div class="col-4 mb-3">
-      <h6>Secondary</h6>
-      <dr-button label="Secondary" variant="secondary"></dr-button>
-    </div>
-    <div class="col-4 mb-3">
-      <h6>Success</h6>
-      <dr-button label="Success" variant="success"></dr-button>
-    </div>
-    <div class="col-4 mb-3">
-      <h6>Warning</h6>
-      <dr-button label="Warning" variant="warning"></dr-button>
-    </div>
-    <div class="col-4 mb-3">
-      <h6>Danger</h6>
-      <dr-button label="Danger" variant="danger"></dr-button>
-    </div>
-    <div class="col-4 mb-3">
-      <h6>Info</h6>
-      <dr-button label="Info" variant="info"></dr-button>
-    </div>
-  </div>
-</div></div>
-

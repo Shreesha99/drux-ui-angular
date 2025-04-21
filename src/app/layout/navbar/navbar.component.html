@@ -1,7 +1,9 @@
-<nav class="navbar navbar-dark bg-dark px-4 d-flex justify-content-between align-items-center">
+<nav
+  class="navbar px-4 d-flex justify-content-between align-items-center border-top border-dark border-opacity-25 sticky-top"
+  style="border-style: dotted"
+>
   <!-- Left: Logo -->
   <div class="d-flex align-items-center gap-3">
-    <!-- Use routerLink to navigate to the "welcome" screen -->
     <a [routerLink]="['/welcome']">
       <img
         src="https://druxui.s3.ap-south-1.amazonaws.com/just-logo-dark.png"
@@ -16,27 +18,84 @@
     </a>
   </div>
 
-  <!-- Center: Search Bar -->
-  <form class="d-flex w-50">
+  <div class="position-relative w-50" #searchContainer>
+    <!-- Search Input with padding to allow space for custom button -->
     <input
-      class="form-control me-2"
+      class="form-control"
       type="search"
       placeholder="Search components..."
       aria-label="Search"
       (input)="onSearch($event)"
+      [value]="searchQuery"
+      #searchInput
+      style="padding-right: 30px"
     />
-  </form>
 
-  <!-- Social Links -->
-  <div class="d-flex align-items-center gap-3">
-    <a href="https://github.com/your-org/drux-ui" target="_blank" class="text-light">
-      <i class="bi bi-github fs-5"></i>
-    </a>
-    <a href="https://twitter.com/yourhandle" target="_blank" class="text-light">
-      <i class="bi bi-twitter fs-5"></i>
-    </a>
-    <a href="https://linkedin.com/in/your-profile" target="_blank" class="text-light">
-      <i class="bi bi-linkedin fs-5"></i>
-    </a>
+    <!-- Custom Clear Button (Only shows when searchQuery is not empty) -->
+    <button
+      *ngIf="searchQuery.length > 0"
+      class="position-absolute top-0 end-0 my-1 mx-2 btn btn-sm p-0 border-0"
+      (click)="clearSearch()"
+      aria-label="Clear search"
+      style="z-index: 2; color: #dc3545; font-size: 1.2rem"
+    >
+      <i class="bi bi-x-circle"></i>
+      <!-- Bootstrap icon for a red "X" -->
+    </button>
+
+    <!-- Keyboard Shortcut Badge -->
+    <span
+      class="position-absolute top-0 end-0 my-1 mx-4 badge bg-transparent text-dark fw-light fs-6"
+    >
+      Ctrl/⌘ + K
+    </span>
+
+    <!-- Dropdown of filtered components -->
+    <div
+      class="position-absolute bg-white shadow-sm rounded mt-1 z-3 w-100 hide-scrollbar"
+      *ngIf="filteredComponents.length > 0"
+      style="max-height: 300px; overflow-y: auto"
+    >
+      <ul class="list-group list-group-flush">
+        <li
+          class="list-group-item list-group-item-action"
+          *ngFor="let comp of filteredComponents"
+          [routerLink]="comp.route"
+          (click)="clearSearch()"
+        >
+          {{ comp.name }}
+        </li>
+      </ul>
+    </div>
   </div>
+
+  <style>
+    input[type="search"]::-webkit-search-cancel-button {
+      display: none !important;
+    }
+    input[type="search"]::-moz-search-cancel-button {
+      display: none !important;
+    }
+    input[type="search"]::-ms-clear {
+      display: none !important;
+    }
+  </style>
+
+<div class="d-flex align-items-center gap-3">
+  <!-- GitHub Link -->
+  <a href="https://github.com/Shreesha99" target="_blank" class="text-dark">
+    <i class="bi bi-github fs-5"></i>
+  </a>
+
+  <!-- Email Link -->
+  <a href="mailto:youremail@example.com" class="text-dark">
+    <i class="bi bi-envelope fs-5"></i>
+  </a>
+
+  <!-- Theme Toggle Button -->
+  <button (click)="toggleTheme()" class="btn btn-sm p-0 border-0" aria-label="Toggle Theme">
+    <i class="bi" [ngClass]="isDarkTheme ? 'bi-sun' : 'bi-moon'"></i> 
+  </button>
+</div>
+
 </nav>

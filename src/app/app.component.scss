@@ -1,7 +1,7 @@
-/* src/app/app.component.scss */
 :host {
   display: block;
   height: 100vh; /* Full height of the viewport */
+  overflow: hidden; /* Prevent page-level scroll */
 }
 
 .d-flex {
@@ -9,21 +9,37 @@
 }
 
 .container-fluid {
-  overflow-y: auto;
   height: 100%;
+  overflow: hidden; /* Prevent page-level scrolling */
+  display: flex;
 }
 
 app-sidebar {
   width: 250px; /* Sidebar width */
-  border-left: 2px dotted black; /* Dotted gray line on the left */
-  border-right: 2px dotted black; /* Dotted gray line on the right */
+  border-right: 2px dotted black; /* Dotted border on the right */
   background-color: #f8f9fa; /* Light gray background */
   height: 100%; /* Full height */
   box-sizing: border-box; /* Ensure border is included in width */
+  overflow-y: auto; /* Enable vertical scrolling for sidebar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+}
+
+app-sidebar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .content-area {
   flex-grow: 1;
+  overflow-y: auto; /* Enable vertical scrolling for content */
+  height: 100%; /* Ensure content fills the remaining space */
+  padding: 1rem; /* Add padding around content */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.content-area::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 /* Optional: Sidebar nav link styles */
@@ -40,4 +56,5 @@ app-sidebar {
 
 .nav-link.active {
   color: #fff;
+  background-color: #0d6efd;
 }
