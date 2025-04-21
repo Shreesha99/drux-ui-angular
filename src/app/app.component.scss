@@ -20,6 +20,7 @@
 app-sidebar {
   width: 250px; /* Sidebar width */
   border-right: 2px dotted black; /* Dotted border on the right */
+  border-left: 2px dotted black;
   background-color: #f8f9fa; /* Light gray background */
   height: 100%; /* Full height */
   box-sizing: border-box; /* Ensure border is included in width */
@@ -54,10 +55,10 @@ app-sidebar::-webkit-scrollbar {
 }
 
 .nav-link:hover {
-  color: #0d6efd;
+  color: black;
 }
 
 .nav-link.active {
   color: #fff;
-  background-color: #0d6efd;
+  background-color: black;
 }

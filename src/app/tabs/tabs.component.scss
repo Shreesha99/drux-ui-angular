@@ -1,7 +1,23 @@
+.nav-tabs {
+  border-color: #ddd; /* Light grey border for the tabs */
+}
+
 .nav-tabs .nav-item {
   margin-right: 15px; /* Adjust the gap between tabs */
 }
 
 .nav-tabs .nav-item:last-child {
   margin-right: 0; /* Ensure no gap after the last tab */
+}
+
+.nav-tabs .nav-link {
+  color: black; /* Black text color for the tabs */
+  background-color: white; /* White background for the tabs */
+  border: 1px solid #ddd; /* Light border around the tabs */
+}
+
+.nav-tabs .nav-link.active {
+  color: white; /* White text when active */
+  background-color: black; /* Black background when active */
+  border-color: #ddd; /* Border remains light grey even when active */
 }
