@@ -1,0 +1,42 @@
+<nav class="navbar navbar-dark bg-dark px-4 d-flex justify-content-between align-items-center">
+  <!-- Left: Logo -->
+  <div class="d-flex align-items-center gap-3">
+    <!-- Use routerLink to navigate to the "welcome" screen -->
+    <a [routerLink]="['/welcome']">
+      <img
+        src="https://druxui.s3.ap-south-1.amazonaws.com/just-logo-dark.png"
+        alt="Drux Logo"
+        width="36"
+        height="36"
+        class="rounded"
+      />
+    </a>
+    <a [routerLink]="['/welcome']" class="navbar-brand mb-0 h1">
+      Drux UI - Angular
+    </a>
+  </div>
+
+  <!-- Center: Search Bar -->
+  <form class="d-flex w-50">
+    <input
+      class="form-control me-2"
+      type="search"
+      placeholder="Search components..."
+      aria-label="Search"
+      (input)="onSearch($event)"
+    />
+  </form>
+
+  <!-- Social Links -->
+  <div class="d-flex align-items-center gap-3">
+    <a href="https://github.com/your-org/drux-ui" target="_blank" class="text-light">
+      <i class="bi bi-github fs-5"></i>
+    </a>
+    <a href="https://twitter.com/yourhandle" target="_blank" class="text-light">
+      <i class="bi bi-twitter fs-5"></i>
+    </a>
+    <a href="https://linkedin.com/in/your-profile" target="_blank" class="text-light">
+      <i class="bi bi-linkedin fs-5"></i>
+    </a>
+  </div>
+</nav>
