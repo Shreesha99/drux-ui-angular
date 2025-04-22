@@ -1,1 +1,63 @@
-<p>input-showcase works!</p>
+<div class="p-3">
+    <!-- Tabs Header -->
+    <app-tabs
+      class="w-100"
+      [tabs]="tabs"
+      [activeTab]="activeTab"
+      (activeTabChange)="activeTab = $event"
+    ></app-tabs>
+  
+    <!-- Tabs Content -->
+    <div class="mt-4 w-100">
+      @if (activeTab === 'preview') {
+        <div class="mb-3">
+          <h5>Default Input</h5>
+          <dr-input placeholder="Enter text"></dr-input>
+        </div>
+      }
+  
+      @if (activeTab === 'code') {
+        <div class="position-relative">
+          <app-copy-button
+            class="position-absolute top-0 end-0 m-2"
+            [code]="inputCode"
+          ></app-copy-button>
+  
+          <pre class="bg-light p-3 rounded border">
+  <code class="language-html">{{ inputCode }}</code>
+          </pre>
+        </div>
+      }
+  
+      @if (activeTab === 'variants') {
+        <h5>Input Variants</h5>
+        <table class="table table-bordered w-100">
+          <thead>
+            <tr>
+              <th>Variant</th>
+              <th>Example</th>
+              <th>Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Default</td>
+              <td><dr-input placeholder="Default input"></dr-input></td>
+              <td><code>&lt;dr-input placeholder="Default input"&gt;&lt;/dr-input&gt;</code></td>
+            </tr>
+            <tr>
+              <td>With Label</td>
+              <td><label>Username<dr-input placeholder="Username"></dr-input></label></td>
+              <td><code>&lt;label&gt;Username&lt;dr-input placeholder="Username"&gt;&lt;/dr-input&gt;&lt;/label&gt;</code></td>
+            </tr>
+            <tr>
+              <td>Disabled</td>
+              <td><dr-input placeholder="Disabled" [disabled]="true"></dr-input></td>
+              <td><code>[disabled]="true"</code></td>
+            </tr>
+          </tbody>
+        </table>
+      }
+    </div>
+  </div>
+  

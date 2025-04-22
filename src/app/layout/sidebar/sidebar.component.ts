@@ -10,6 +10,5 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-  // Accept the theme state from parent (NavbarComponent)
   @Input() isDarkTheme: boolean = false;
 }

@@ -1,0 +1,109 @@
+<div class="p-3">
+  <!-- Tabs Header -->
+  <app-tabs
+    class="w-100"
+    [tabs]="tabs"
+    [activeTab]="activeTab"
+    (activeTabChange)="activeTab = $event"
+  ></app-tabs>
+
+  <!-- Tabs Content -->
+  <div class="mt-4 w-100">
+    @if (activeTab === 'preview') {
+      <div class="mb-3">
+        <h5>Default Accordion</h5>
+        <dr-accordion title="Accordion Title">
+          <p>This is the content of the accordion.</p>
+        </dr-accordion>
+      </div>
+    }
+
+    @if (activeTab === 'code') {
+      <div class="position-relative">
+        <app-copy-button
+          class="position-absolute top-0 end-0 m-2"
+          [code]="accordionCode"
+        ></app-copy-button>
+
+        <pre class="bg-light p-3 rounded border">
+<code class="language-html">{{ accordionCode }}</code>
+        </pre>
+      </div>
+    }
+
+    <!-- @if (activeTab === 'variants') {
+      <h5>Accordion Variants</h5>
+      <table class="table table-bordered w-100">
+        <thead>
+          <tr>
+            <th>Variant</th>
+            <th>Example</th>
+            <th>Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primary</td>
+            <td>
+              <dr-accordion title="Accordion - Primary" variant="primary">
+                <p>Content for primary accordion.</p>
+              </dr-accordion>
+            </td>
+            <td>
+              <code>
+                &lt;dr-accordion title="Accordion - Primary" variant="primary"&gt;<br />
+                &nbsp;&nbsp;&lt;p&gt;Content for primary accordion.&lt;/p&gt;<br />
+                &lt;/dr-accordion&gt;
+              </code>
+            </td>
+          </tr>
+          <tr>
+            <td>Success</td>
+            <td>
+              <dr-accordion title="Accordion - Success" variant="success">
+                <p>Content for success accordion.</p>
+              </dr-accordion>
+            </td>
+            <td>
+              <code>
+                &lt;dr-accordion title="Accordion - Success" variant="success"&gt;<br />
+                &nbsp;&nbsp;&lt;p&gt;Content for success accordion.&lt;/p&gt;<br />
+                &lt;/dr-accordion&gt;
+              </code>
+            </td>
+          </tr>
+          <tr>
+            <td>Danger</td>
+            <td>
+              <dr-accordion title="Accordion - Danger" variant="danger">
+                <p>Content for danger accordion.</p>
+              </dr-accordion>
+            </td>
+            <td>
+              <code>
+                &lt;dr-accordion title="Accordion - Danger" variant="danger"&gt;<br />
+                &nbsp;&nbsp;&lt;p&gt;Content for danger accordion.&lt;/p&gt;<br />
+                &lt;/dr-accordion&gt;
+              </code>
+            </td>
+          </tr>
+          <tr>
+            <td>Warning</td>
+            <td>
+              <dr-accordion title="Accordion - Warning" variant="warning">
+                <p>Content for warning accordion.</p>
+              </dr-accordion>
+            </td>
+            <td>
+              <code>
+                &lt;dr-accordion title="Accordion - Warning" variant="warning"&gt;<br />
+                &nbsp;&nbsp;&lt;p&gt;Content for warning accordion.&lt;/p&gt;<br />
+                &lt;/dr-accordion&gt;
+              </code>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    } -->
+  </div>
+</div>

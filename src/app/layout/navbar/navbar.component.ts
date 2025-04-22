@@ -51,7 +51,6 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem('theme', 'dark');
   }
 
-  // Set light theme
   setLightTheme(): void {
     this.isDarkTheme = false;
     document.body.classList.add('light-theme');
@@ -59,17 +58,20 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem('theme', 'light');
   }
 
-  // Dynamically extract routes and their components from Router configuration
   private extractRoutes(): void {
     this.searchableComponents = this.flattenRoutes(this.router.config)
-      .filter((route) => route.path && route.component)
+      .filter(
+        (route) =>
+          !!route.path &&
+          !route.path.includes('**') &&
+          typeof route.component === 'function'
+      )
       .map((route) => ({
         name: this.formatName(route.path!),
-        route: `/${route.path}`,
+        route: route.path!.startsWith('/') ? route.path : `/${route.path}`,
       }));
   }
 
-  // Utility to flatten nested routes if using nested routing
   private flattenRoutes(routes: any[], parentPath = ''): any[] {
     return routes.flatMap((route) => {
       const fullPath = parentPath + (route.path ? `/${route.path}` : '');
@@ -83,7 +85,6 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  // Format the component name to a more human-readable form
   private formatName(path: string): string {
     return path
       .split('-')
@@ -91,13 +92,11 @@ export class NavbarComponent implements OnInit {
       .join(' ');
   }
 
-  // Method to perform search based on query
   onSearch(event: any): void {
     this.searchQuery = event.target.value;
     this.performSearch(this.searchQuery);
   }
 
-  // Filter components based on the search query
   performSearch(query: string): void {
     const q = query.toLowerCase();
     this.filteredComponents = this.searchableComponents.filter((comp) =>
@@ -105,13 +104,11 @@ export class NavbarComponent implements OnInit {
     );
   }
 
-  // Clear search results and input field
   clearSearch(): void {
     this.searchQuery = '';
     this.filteredComponents = [];
   }
 
-  // Close search dropdown when clicking outside of it
   @HostListener('document:click', ['$event'])
   onClickOutside(event: MouseEvent): void {
     if (
@@ -122,10 +119,8 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  // Listen for keyboard shortcuts (Ctrl + K or Cmd + K)
   @HostListener('document:keydown', ['$event'])
   onKeydown(event: KeyboardEvent): void {
-    // Check if the pressed keys are Ctrl/Cmd + K
     if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
       event.preventDefault();
       this.focusSearch();
