@@ -27,5 +27,5 @@ export class TextareaShowcaseComponent {
     { label: 'API', value: 'api' },
   ];
 
-  textareaCode = `<dr-textarea label="Message" placeholder="Enter your message" [(model)]="textareaModel" [showCharCount]="true" [maxLength]="200"></dr-textarea>`;
+  textareaCode = `<dr-textarea label="Message" placeholder="Enter your message" [(model)]="textareaModel" [maxLength]="200"  showCharCount ></dr-textarea>`;
 }
