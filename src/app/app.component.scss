@@ -1,52 +1,56 @@
 :host {
   display: block;
-  height: 100vh; /* Full height of the viewport */
-  overflow: hidden; /* Prevent page-level scroll */
+  height: 100vh;
+  overflow: hidden;
 }
 
 .d-flex {
-  height: 100%; /* Ensure the sidebar and content area take full height */
-  width: 100%; /* Ensure the flex container spans the full width */
+  height: 100%;
+  width: 100%;
 }
 
 .container-fluid {
   height: 100%;
-  width: 100%; /* Make sure the container spans the full width */
+  width: 100%;
   display: flex;
-  padding-left: 0;  /* Optional: Remove extra padding if needed */
-  padding-right: 0; /* Optional: Remove extra padding if needed */
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .container-fluid {
+    flex-direction: row;
+  }
 }
 
 app-sidebar {
-  width: 250px; /* Sidebar width */
-  border-right: 2px dotted black; /* Dotted border on the right */
+  width: 250px;
+  border-right: 2px dotted black;
   border-left: 2px dotted black;
-  background-color: #f8f9fa; /* Light gray background */
-  height: 100%; /* Full height */
-  box-sizing: border-box; /* Ensure border is included in width */
-  overflow-y: auto; /* Enable vertical scrolling for sidebar */
-  scrollbar-width: none; /* Firefox */
+  background-color: #f8f9fa;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
 app-sidebar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
 .content-area {
   flex-grow: 1;
-  overflow-y: auto; /* Enable vertical scrolling for content */
-  height: 100%; /* Ensure content fills the remaining space */
-  padding: 1rem; /* Add padding around content */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  overflow-y: auto;
+  height: 100%;
+  padding: 1rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .content-area::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
-/* Optional: Sidebar nav link styles */
 .nav-link {
   color: #333;
   padding: 0.75rem 1rem;
@@ -61,4 +65,11 @@ app-sidebar::-webkit-scrollbar {
 .nav-link.active {
   color: #fff;
   background-color: black;
+}
+
+/* Ensure content area adapts correctly when sidebar is hidden on mobile */
+@media (max-width: 767.98px) {
+  .content-area {
+    padding-top: 0.5rem;
+  }
 }

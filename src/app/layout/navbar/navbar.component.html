@@ -1,7 +1,9 @@
 <nav
   [ngClass]="[
-    isDarkTheme ? 'navbar-dark bg-dark border-light' : 'navbar-light bg-light border-dark',
-    'navbar px-4 d-flex justify-content-between align-items-center border-top border-opacity-25 sticky-top'
+    isDarkTheme
+      ? 'navbar-dark bg-dark border-light'
+      : 'navbar-light bg-light border-dark',
+    'navbar px-4 d-flex flex-column flex-md-row justify-content-between align-items-center border-top border-opacity-25 sticky-top gap-2 gap-md-0'
   ]"
   style="border-style: dotted"
 >
@@ -9,7 +11,11 @@
   <div class="d-flex align-items-center gap-3">
     <a [routerLink]="['/welcome']">
       <img
-        [src]="isDarkTheme ? 'https://druxui.s3.ap-south-1.amazonaws.com/just-logo-dark.png' : 'https://druxui.s3.ap-south-1.amazonaws.com/just-logo.png'"
+        [src]="
+          isDarkTheme
+            ? 'https://druxui.s3.ap-south-1.amazonaws.com/just-logo-dark.png'
+            : 'https://druxui.s3.ap-south-1.amazonaws.com/just-logo.png'
+        "
         alt="Drux Logo"
         width="36"
         height="36"
@@ -48,7 +54,7 @@
 
     <!-- Keyboard Shortcut Badge -->
     <span
-      class="position-absolute top-0 end-0 my-1 mx-4 badge bg-transparent fw-light fs-6 text-dark"
+      class="d-none d-md-inline position-absolute top-0 end-0 my-1 mx-4 badge bg-transparent fw-light fs-6 text-dark"
     >
       Ctrl/⌘ + K
     </span>
@@ -87,29 +93,38 @@
 
   <div class="d-flex align-items-center gap-3">
     <!-- GitHub Link -->
-    <a href="https://github.com/Shreesha99" target="_blank" [ngClass]="isDarkTheme ? 'text-white' : 'text-dark'">
+    <a
+      href="https://github.com/Shreesha99"
+      target="_blank"
+      [ngClass]="isDarkTheme ? 'text-white' : 'text-dark'"
+    >
       <i class="bi bi-github fs-5"></i>
     </a>
 
     <!-- Email Link -->
-    <a href="mailto:youremail@example.com" [ngClass]="isDarkTheme ? 'text-white' : 'text-dark'">
+    <a
+      href="mailto:youremail@example.com"
+      [ngClass]="isDarkTheme ? 'text-white' : 'text-dark'"
+    >
       <i class="bi bi-envelope fs-5"></i>
     </a>
 
     <!-- Theme Toggle Button -->
-    <button (click)="toggleTheme()" class="btn btn-sm p-0 border-0" aria-label="Toggle Theme">
-      <i 
-        class="bi fs-5 transition" 
+    <button
+      (click)="toggleTheme()"
+      class="btn btn-sm p-0 border-0"
+      aria-label="Toggle Theme"
+    >
+      <i
+        class="bi fs-5 transition"
         [ngClass]="{
           'bi-sun': isDarkTheme,
           'bi-moon': !isDarkTheme,
           'text-white': isDarkTheme,
           'text-dark': !isDarkTheme
-        }">
+        }"
+      >
       </i>
     </button>
-    
-    
-    
   </div>
 </nav>

@@ -1,10 +1,49 @@
 <app-navbar></app-navbar>
 
-<div class="container-fluid px-5">
-  <div class="d-flex h-100">
-    <app-sidebar [isDarkTheme]="isDarkTheme"></app-sidebar>
+<div class="container-fluid px-3 px-md-5">
+  <div class="d-flex flex-column flex-md-row h-100">
+    <app-sidebar
+      [isDarkTheme]="isDarkTheme"
+      class="d-none d-md-block"
+    ></app-sidebar>
 
-    <div class="content-area flex-grow-1" [ngClass]="isDarkTheme ? 'dark-theme' : 'light-theme'">
+    <!-- Offcanvas Sidebar for Mobile -->
+    <div class="d-md-none">
+      <button
+        class="btn btn-outline-secondary my-2"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#mobileSidebar"
+        aria-controls="mobileSidebar"
+      >
+        ☰ Menu
+      </button>
+
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="mobileSidebar"
+        aria-labelledby="mobileSidebarLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="mobileSidebarLabel">Menu</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body p-0">
+          <app-sidebar [isDarkTheme]="isDarkTheme"></app-sidebar>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="content-area flex-grow-1"
+      [ngClass]="isDarkTheme ? 'dark-theme' : 'light-theme'"
+    >
       <router-outlet></router-outlet>
     </div>
   </div>
