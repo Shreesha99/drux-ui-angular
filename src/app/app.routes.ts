@@ -6,12 +6,14 @@ import { InputShowcaseComponent } from './showcase/input/input-showcase.componen
 import { AccordionShowcaseComponent } from './showcase/accordion/accordion-showcase.component';
 import { ErrorComponent } from './showcase/error/error.component';
 import { IconShowcaseComponent } from './showcase/icon/icon-showcase.component';
+import { TextareaShowcaseComponent } from './showcase/textarea/textarea-showcase.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
   { path: 'button', component: ButtonShowcaseComponent },
-  { path: 'inputText', component: InputShowcaseComponent },
+  { path: 'inputtext', component: InputShowcaseComponent },
   { path: 'icon', component: IconShowcaseComponent },
+  { path: 'textarea', component: TextareaShowcaseComponent },
   { path: '**', component: ErrorComponent },
 ];

@@ -1,0 +1,136 @@
+<div class="p-3">
+    <div class="mb-1" style="max-width: 80vw;">
+      <p>
+        Drux Textarea is a customizable textarea component with features like character count, auto-resize, and input validation.
+      </p>
+    </div>
+    <app-tabs
+      class="w-100"
+      [tabs]="tabs"
+      [activeTab]="activeTab"
+      (activeTabChange)="activeTab = $event"
+    ></app-tabs>
+  
+    <div class="mt-4 w-100">
+      <!-- Preview Tab -->
+      @if (activeTab === 'preview') {
+        <div class="mb-3">
+          <h5>Textarea Preview</h5>
+          <dr-textarea 
+            label="Message" 
+            placeholder="Enter your message" 
+            [rows]="5" 
+            [(model)]="textareaModel" 
+            [maxLength]="200"
+            showCharCount
+          ></dr-textarea>
+        </div>
+      }
+  
+      <!-- Code Tab -->
+      @if (activeTab === 'code') {
+        <div class="position-relative" style="height: 50px;">
+          <app-copy-button
+            class="position-absolute top-0 end-0"
+            [code]="textareaCode"
+          ></app-copy-button>
+          <pre class="bg-gray rounded border d-flex align-items-center ps-3 pe-5 m-0 h-100 overflow-auto">
+            <code class="language-html fs-6 m-0 text-black">{{ textareaCode }}</code>
+          </pre>
+        </div>
+      }
+  
+      <!-- Variants Tab -->
+      @if (activeTab === 'variants') {
+        <h5>Textarea Variants</h5>
+        <table class="table table-bordered w-100">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Textarea</th>
+              <th>Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Standard</td>
+              <td><dr-textarea label="Message" placeholder="Enter your message" [(model)]="textareaModel"></dr-textarea></td>
+              <td><code>label="Message" placeholder="Enter your message"</code></td>
+            </tr>
+            <tr>
+              <td>With Char Count</td>
+              <td><dr-textarea label="Message" placeholder="Enter your message" [(model)]="textareaModel" showCharCount></dr-textarea></td>
+              <td><code>showCharCount</code></td>
+            </tr>
+            <tr>
+              <td>Auto Resize</td>
+              <td><dr-textarea label="Message" placeholder="Enter your message" [(model)]="textareaModel" autoResize></dr-textarea></td>
+              <td><code>autoResize</code></td>
+            </tr>
+            <tr>
+              <td>Disabled</td>
+              <td><dr-textarea label="Message" placeholder="Enter your message" [(model)]="textareaModel" [disabled]="true"></dr-textarea></td>
+              <td><code>[disabled]="true"</code></td>
+            </tr>
+          </tbody>
+        </table>
+      }
+  
+      <!-- API Tab -->
+      @if (activeTab === 'api') {
+        <h5>DruxTextarea API</h5>
+        <table class="table table-bordered w-100">
+          <thead>
+            <tr>
+              <th>Input</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>label</code></td>
+              <td><code>string</code></td>
+              <td>The label text for the textarea.</td>
+            </tr>
+            <tr>
+              <td><code>placeholder</code></td>
+              <td><code>string</code></td>
+              <td>The placeholder text for the textarea.</td>
+            </tr>
+            <tr>
+              <td><code>[rows]</code></td>
+              <td><code>number</code></td>
+              <td>The number of visible rows in the textarea.</td>
+            </tr>
+            <tr>
+              <td><code>[(model)]</code></td>
+              <td><code>string</code></td>
+              <td>Two-way bound model for the textarea value.</td>
+            </tr>
+            <tr>
+              <td><code>showCharCount</code></td>
+              <td><code>boolean</code></td>
+              <td>Displays the character count if set to true.</td>
+            </tr>
+            <tr>
+              <td><code>autoResize</code></td>
+              <td><code>boolean</code></td>
+              <td>Enables auto-resizing of the textarea as content is added.</td>
+            </tr>
+            <tr>
+              <td><code>[maxLength]</code></td>
+              <td><code>number</code></td>
+              <td>Sets the maximum character length for the textarea.</td>
+            </tr>
+            <tr>
+              <td><code>[disabled]</code></td>
+              <td><code>boolean</code></td>
+              <td>Disables the textarea if set to true.</td>
+            </tr>
+          </tbody>
+        </table>
+      }
+    </div>
+  </div>
+  
