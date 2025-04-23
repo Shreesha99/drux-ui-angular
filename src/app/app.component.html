@@ -2,9 +2,9 @@
 
 <div class="container-fluid px-5">
   <div class="d-flex h-100">
-    <app-sidebar></app-sidebar>
+    <app-sidebar [isDarkTheme]="isDarkTheme"></app-sidebar>
 
-    <div class="content-area flex-grow-1">
+    <div class="content-area flex-grow-1" [ngClass]="isDarkTheme ? 'dark-theme' : 'light-theme'">
       <router-outlet></router-outlet>
     </div>
   </div>

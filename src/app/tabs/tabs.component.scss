@@ -13,11 +13,10 @@
 .nav-tabs .nav-link {
   color: black; /* Black text color for the tabs */
   background-color: white; /* White background for the tabs */
-  border: 1px solid #ddd; /* Light border around the tabs */
+  border-bottom: 1px solid #ddd; /* Light border around the tabs */
 }
 
 .nav-tabs .nav-link.active {
   color: white; /* White text when active */
   background-color: black; /* Black background when active */
-  border-color: #ddd; /* Border remains light grey even when active */
 }

@@ -11,3 +11,12 @@
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
+
+.transition {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+button .bi:hover {
+  transform: rotate(15deg); /* Optional hover effect */
+}
+

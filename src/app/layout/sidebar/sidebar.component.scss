@@ -40,3 +40,30 @@
 .text-dark {
   color: #212529 !important;
 }
+
+/* Only dark mode styles for <ul>, <li>, and <a> nav items */
+:host-context(.dark-theme) ul.sidebar {
+  background-color: #212529; /* Inherits from global body.dark-theme */
+}
+
+:host-context(.dark-theme) ul.sidebar .list-group-item {
+  background-color: transparent;
+}
+
+:host-context(.dark-theme) ul.sidebar .nav-link {
+  color: #e0e6ed;
+}
+
+:host-context(.dark-theme) ul.sidebar .nav-link:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+:host-context(.dark-theme) ul.sidebar .nav-link.active {
+  background-color: #fff;
+  color: #000;
+}
+
+:host-context(.dark-theme) ul.sidebar .text-muted {
+  color: #fff !important; 
+}
