@@ -10,4 +10,16 @@
   table code {
     white-space: nowrap;
   }
+
+  pre {
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 0;
+    height: 50px;
+  }
+  
+  pre code {
+    display: block;
+  }
   

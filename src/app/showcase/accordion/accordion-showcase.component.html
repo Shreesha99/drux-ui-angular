@@ -19,17 +19,17 @@
     }
 
     @if (activeTab === 'code') {
-      <div class="position-relative">
+      <div class="position-relative" style="height: 50px;">
         <app-copy-button
-          class="position-absolute top-0 end-0 m-2"
+          class="position-absolute top-0 end-0"
           [code]="accordionCode"
         ></app-copy-button>
-
-        <pre class="bg-light p-3 rounded border">
-<code class="language-html">{{ accordionCode }}</code>
+    
+        <pre class="bg-light rounded border d-flex align-items-center ps-3 pe-5 m-0 h-100 overflow-auto">
+          <code class="language-html fs-6 m-0">{{ accordionCode }}</code>
         </pre>
       </div>
-    }
+    } 
 
     <!-- @if (activeTab === 'variants') {
       <h5>Accordion Variants</h5>

@@ -1,21 +1,26 @@
 pre {
   background-color: #f7f7f7;
-  padding: 15px;
   border-radius: 5px;
+  overflow-x: auto;
+  margin: 0;
+  height: 50px;
+}
+
+pre code {
+  display: block;
 }
 
 button.btn-primary {
   margin-top: 10px;
 }
 
-/* Custom table style for API tab */
 .api-table {
   border-collapse: collapse;
 }
 
 .api-table th,
 .api-table td {
-  border-bottom: 1px solid #ddd; /* Only horizontal gridlines */
+  border-bottom: 1px solid #ddd; 
   padding: 8px;
 }
 
