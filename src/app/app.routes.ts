@@ -10,9 +10,8 @@ import { IconShowcaseComponent } from './showcase/icon/icon-showcase.component';
 export const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   { path: 'welcome', component: WelcomeComponent },
-  { path: 'accordion', component: AccordionShowcaseComponent },
   { path: 'button', component: ButtonShowcaseComponent },
-  { path: 'input', component: InputShowcaseComponent },
+  { path: 'inputText', component: InputShowcaseComponent },
   { path: 'icon', component: IconShowcaseComponent },
   { path: '**', component: ErrorComponent },
 ];

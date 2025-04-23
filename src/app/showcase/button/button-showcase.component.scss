@@ -1,21 +1,29 @@
-/* button-showcase.component.scss */
-
-/* Optional custom styles for the tabs */
-.nav-tabs {
-  margin-bottom: 20px;
-}
-
-.tab-pane {
-  padding: 15px;
-}
-
 pre {
   background-color: #f7f7f7;
   padding: 15px;
   border-radius: 5px;
-
 }
 
 button.btn-primary {
   margin-top: 10px;
+}
+
+/* Custom table style for API tab */
+.api-table {
+  border-collapse: collapse;
+}
+
+.api-table th,
+.api-table td {
+  border-bottom: 1px solid #ddd; /* Only horizontal gridlines */
+  padding: 8px;
+}
+
+.api-table th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.api-table td {
+  text-align: left;
 }

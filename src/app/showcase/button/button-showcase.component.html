@@ -1,4 +1,19 @@
 <div class="p-3">
+  <div class="mb-1" style="max-width: 80vw;">
+    <p>
+      The Drux Button is a versatile, easy-to-use button component designed to fit seamlessly into your web applications. With a variety of customizable options, it can adapt to different use cases, from simple actions to loading states, giving you full control over your user interface.
+    </p>
+    <p>
+      Available in a wide range of variants including <strong>primary</strong>, <strong>secondary</strong>, <strong>success</strong>, <strong>warning</strong>, and <strong>danger</strong>, this button ensures that you can highlight key actions with ease. Whether you need to grab attention or indicate a critical action, the Drux Button has got you covered.
+    </p>
+    <p>
+      In addition to standard functionality, the Drux Button also supports a <strong>loading state</strong> to visually inform users when an action is in progress, ensuring a smooth user experience. Sizes range from small to large, and you can also use the <strong>block</strong> option to make the button fill its container, providing flexibility for different layouts.
+    </p>
+    <p>
+      Below, you’ll find the preview, the corresponding code snippets, and a detailed breakdown of the available variants. Let's explore the full potential of the Drux Button.
+    </p>
+  </div>
+
   <!-- Tabs Header -->
   <app-tabs
     class="w-100"
@@ -8,119 +23,179 @@
   ></app-tabs>
 
   <!-- Tabs Content -->
-  <div class="mt-4 w-100">
+  <div class="mt-4 w-100 pb-4">
     @if (activeTab === 'preview') {
-    <div class="mb-3">
-      <h5>Primary Button</h5>
-      <dr-button label="Primary" variant="primary"></dr-button>
-    </div>
-    } @if (activeTab === 'code') {
-    <div class="position-relative">
-      <app-copy-button
-        class="position-absolute top-0 end-0 m-2"
-        [code]="buttonCode"
-      ></app-copy-button>
+      <div class="mb-3">
+        <h5>Primary Button</h5>
+        <dr-button label="Primary" variant="primary"></dr-button>
+      </div>
+    } 
+    @if (activeTab === 'code') {
+      <div class="position-relative">
+        <app-copy-button
+          class="position-absolute top-0 end-0 m-2"
+          [code]="buttonCode"
+        ></app-copy-button>
 
-      <pre class="bg-light p-3 rounded border">
-          <code class="language-html">{{ buttonCode }}</code>
-        </pre>
-    </div>
-    } @if (activeTab === 'variants') {
-    <h5>Button Variants</h5>
-    <table class="table table-bordered w-100">
+        <pre class="bg-light p-3 rounded border">
+            <code class="language-html">{{ buttonCode }}</code>
+          </pre>
+      </div>
+    } 
+    @if (activeTab === 'variants') {
+      <h5>Button Variants</h5>
+      <table class="table table-bordered w-100">
+        <thead>
+          <tr>
+            <th>Variant</th>
+            <th>Button Example</th>
+            <th>Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Primary -->
+          <tr>
+            <td>Primary</td>
+            <td><dr-button label="Primary" type="primary" [loading]="false" size="md" [block]="false"></dr-button></td>
+            <td><code>type="primary"</code></td>
+          </tr>
+
+          <!-- Secondary -->
+          <tr>
+            <td>Secondary</td>
+            <td><dr-button label="Secondary" type="secondary" [loading]="false" size="md" [block]="false"></dr-button></td>
+            <td><code>type="secondary"</code></td>
+          </tr>
+
+          <!-- Success -->
+          <tr>
+            <td>Success</td>
+            <td><dr-button label="Success" type="success" [loading]="false" size="md" [block]="false"></dr-button></td>
+            <td><code>type="success"</code></td>
+          </tr>
+
+          <!-- Warning -->
+          <tr>
+            <td>Warning</td>
+            <td><dr-button label="Warning" type="warning" [loading]="false" size="md" [block]="false"></dr-button></td>
+            <td><code>type="warning"</code></td>
+          </tr>
+
+          <!-- Danger -->
+          <tr>
+            <td>Danger</td>
+            <td><dr-button label="Danger" type="danger" [loading]="false" size="md" [block]="false"></dr-button></td>
+            <td><code>type="danger"</code></td>
+          </tr>
+
+          <!-- Info -->
+          <tr>
+            <td>Info</td>
+            <td><dr-button label="Info" type="info" [loading]="false" size="md" [block]="false"></dr-button></td>
+            <td><code>type="info"</code></td>
+          </tr>
+
+          <!-- Light -->
+          <tr>
+            <td>Light</td>
+            <td><dr-button label="Light" type="light" [loading]="false" size="md" [block]="false"></dr-button></td>
+            <td><code>type="light"</code></td>
+          </tr>
+
+          <!-- Dark -->
+          <tr>
+            <td>Dark</td>
+            <td><dr-button label="Dark" type="dark" [loading]="false" size="md" [block]="false"></dr-button></td>
+            <td><code>type="dark"</code></td>
+          </tr>
+
+          <!-- With [loading] -->
+          <tr>
+            <td>[loading] State</td>
+            <td><dr-button label="[loading]" type="primary" [loading]="true" size="md" [block]="false"></dr-button></td>
+            <td><code>[loading]="true"</code></td>
+          </tr>
+
+          <!-- Small Size -->
+          <tr>
+            <td>Small Size</td>
+            <td><dr-button label="Small" type="primary" [loading]="false" size="sm" [block]="false"></dr-button></td>
+            <td><code>size="sm"</code></td>
+          </tr>
+
+          <!-- Large Size -->
+          <tr>
+            <td>Large Size</td>
+            <td><dr-button label="Large" type="primary" [loading]="false" size="lg" [block]="false"></dr-button></td>
+            <td><code>size="lg"</code></td>
+          </tr>
+
+          <!-- [block] Button -->
+          <tr>
+            <td>[block] Button</td>
+            <td><dr-button label="[block]" type="primary" [loading]="false" size="md" [block]="true"></dr-button></td>
+            <td><code>[block]="true"</code></td>
+          </tr>
+        </tbody>
+      </table>
+    }
+<!-- API Tab -->
+@if (activeTab === 'api') {
+  <div class="mt-4">
+    <h5>API</h5>
+    <p>Here’s a list of available inputs for the Drux Button component:</p>
+    <table class="table table-bordered w-100 api-table">
       <thead>
         <tr>
-          <th>Variant</th>
-          <th>Button Example</th>
-          <th>Code</th>
+          <th>Property</th>
+          <th>Description</th>
         </tr>
       </thead>
       <tbody>
-        <!-- Primary -->
         <tr>
-          <td>Primary</td>
-          <td><dr-button label="Primary" type="primary" [loading]="false" size="md" [block]="false"></dr-button></td>
-          <td><code>type="primary"</code></td>
+          <td><strong>label</strong></td>
+          <td>The text displayed on the button.</td>
         </tr>
-
-        <!-- Secondary -->
         <tr>
-          <td>Secondary</td>
-          <td><dr-button label="Secondary" type="secondary" [loading]="false" size="md" [block]="false"></dr-button></td>
-          <td><code>type="secondary"</code></td>
+          <td><strong>type</strong></td>
+          <td>Defines the button style (e.g., primary, secondary, danger, etc.).</td>
         </tr>
-
-        <!-- Success -->
         <tr>
-          <td>Success</td>
-          <td><dr-button label="Success" type="success" [loading]="false" size="md" [block]="false"></dr-button></td>
-          <td><code>type="success"</code></td>
+          <td><strong>size</strong></td>
+          <td>The size of the button (small, medium, large).</td>
         </tr>
-
-        <!-- Warning -->
         <tr>
-          <td>Warning</td>
-          <td><dr-button label="Warning" type="warning" [loading]="false" size="md" [block]="false"></dr-button></td>
-          <td><code>type="warning"</code></td>
+          <td><strong>block</strong></td>
+          <td>Makes the button take up the full width of its container.</td>
         </tr>
-
-        <!-- Danger -->
         <tr>
-          <td>Danger</td>
-          <td><dr-button label="Danger" type="danger" [loading]="false" size="md" [block]="false"></dr-button></td>
-          <td><code>type="danger"</code></td>
+          <td><strong>loading</strong></td>
+          <td>Displays a loading state.</td>
         </tr>
-
-        <!-- Info -->
         <tr>
-          <td>Info</td>
-          <td><dr-button label="Info" type="info" [loading]="false" size="md" [block]="false"></dr-button></td>
-          <td><code>type="info"</code></td>
+          <td><strong>disabled</strong></td>
+          <td>Disables the button interaction.</td>
         </tr>
-
-        <!-- Light -->
         <tr>
-          <td>Light</td>
-          <td><dr-button label="Light" type="light" [loading]="false" size="md" [block]="false"></dr-button></td>
-          <td><code>type="light"</code></td>
+          <td><strong>outlined</strong></td>
+          <td>Applies an outlined style to the button.</td>
         </tr>
-
-        <!-- Dark -->
         <tr>
-          <td>Dark</td>
-          <td><dr-button label="Dark" type="dark" [loading]="false" size="md" [block]="false"></dr-button></td>
-          <td><code>type="dark"</code></td>
+          <td><strong>text</strong></td>
+          <td>Makes the button a text button without a background.</td>
         </tr>
-
-        <!-- With [loading] -->
         <tr>
-          <td>[loading] State</td>
-          <td><dr-button label="[loading]" type="primary" [loading]="true" size="md" [block]="false"></dr-button></td>
-          <td><code>[loading]="true"</code></td>
+          <td><strong>raised</strong></td>
+          <td>Adds a raised effect to the button.</td>
         </tr>
-
-        <!-- Small Size -->
         <tr>
-          <td>Small Size</td>
-          <td><dr-button label="Small" type="primary" [loading]="false" size="sm" [block]="false"></dr-button></td>
-          <td><code>size="sm"</code></td>
-        </tr>
-
-        <!-- Large Size -->
-        <tr>
-          <td>Large Size</td>
-          <td><dr-button label="Large" type="primary" [loading]="false" size="lg" [block]="false"></dr-button></td>
-          <td><code>size="lg"</code></td>
-        </tr>
-
-        <!-- [block] Button -->
-        <tr>
-          <td>[block] Button</td>
-          <td><dr-button label="[block]" type="primary" [loading]="false" size="md" [block]="true"></dr-button></td>
-          <td><code>[block]="true"</code></td>
+          <td><strong>ariaLabel</strong></td>
+          <td>Provides an accessible name for the button.</td>
         </tr>
       </tbody>
     </table>
-    }
+  </div>
+}
+
   </div>
 </div>

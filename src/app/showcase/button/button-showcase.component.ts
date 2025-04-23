@@ -23,6 +23,7 @@ export class ButtonShowcaseComponent {
     { label: 'Preview', value: 'preview' },
     { label: 'Code', value: 'code' },
     { label: 'Variants', value: 'variants' },
+    { label: 'API', value: 'api' },
   ];
 
   buttonCode = `<dr-button label="Primary" variant="primary"></dr-button>`;
