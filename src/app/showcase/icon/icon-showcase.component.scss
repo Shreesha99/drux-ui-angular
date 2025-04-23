@@ -22,4 +22,23 @@
   pre code {
     display: block;
   }
+
+  .api-table {
+    border-collapse: collapse;
+  }
+  
+  .api-table th,
+  .api-table td {
+    border-bottom: 1px solid #ddd; 
+    padding: 8px;
+  }
+  
+  .api-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+  }
+  
+  .api-table td {
+    text-align: left;
+  }
   

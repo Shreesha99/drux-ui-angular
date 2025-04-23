@@ -1,18 +1,9 @@
 <div class="p-3">
   <div class="mb-1" style="max-width: 80vw;">
-    <p>
-      The Drux Button is a versatile, easy-to-use button component designed to fit seamlessly into your web applications. With a variety of customizable options, it can adapt to different use cases, from simple actions to loading states, giving you full control over your user interface.
+    <p class="text-muted">
+      Drux Button is a flexible and customizable Bootstrap-based button component. Supports variants, sizes, loading state, and block layout.
     </p>
-    <p>
-      Available in a wide range of variants including <strong>primary</strong>, <strong>secondary</strong>, <strong>success</strong>, <strong>warning</strong>, and <strong>danger</strong>, this button ensures that you can highlight key actions with ease. Whether you need to grab attention or indicate a critical action, the Drux Button has got you covered.
-    </p>
-    <p>
-      In addition to standard functionality, the Drux Button also supports a <strong>loading state</strong> to visually inform users when an action is in progress, ensuring a smooth user experience. Sizes range from small to large, and you can also use the <strong>block</strong> option to make the button fill its container, providing flexibility for different layouts.
-    </p>
-    <p>
-      Below, you’ll find the preview, the corresponding code snippets, and a detailed breakdown of the available variants. Let's explore the full potential of the Drux Button.
-    </p>
-  </div>
+  </div>  
 
   <!-- Tabs Header -->
   <app-tabs
@@ -143,60 +134,82 @@
 <!-- API Tab -->
 @if (activeTab === 'api') {
   <div class="mt-4">
-    <h5>API</h5>
-    <p>Here’s a list of available inputs for the Drux Button component:</p>
-    <table class="table table-bordered w-100 api-table">
+    <h5>Button API</h5>
+    <table class="table table-bordered w-100">
       <thead>
         <tr>
-          <th>Property</th>
+          <th>Input</th>
+          <th>Type</th>
+          <th>Default</th>
           <th>Description</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>label</strong></td>
+          <td><code>label</code></td>
+          <td><code>string</code></td>
+          <td><code>''</code></td>
           <td>The text displayed on the button.</td>
         </tr>
         <tr>
-          <td><strong>type</strong></td>
-          <td>Defines the button style (e.g., primary, secondary, danger, etc.).</td>
+          <td><code>type</code></td>
+          <td><code>'primary' | 'secondary' | 'success' | 'warning' | 'danger'</code></td>
+          <td><code>'primary'</code></td>
+          <td>Defines the visual style of the button.</td>
         </tr>
         <tr>
-          <td><strong>size</strong></td>
-          <td>The size of the button (small, medium, large).</td>
+          <td><code>size</code></td>
+          <td><code>'sm' | 'md' | 'lg'</code></td>
+          <td><code>'md'</code></td>
+          <td>Controls the size of the button.</td>
         </tr>
         <tr>
-          <td><strong>block</strong></td>
-          <td>Makes the button take up the full width of its container.</td>
+          <td><code>block</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Makes the button span the full width of its parent.</td>
         </tr>
         <tr>
-          <td><strong>loading</strong></td>
-          <td>Displays a loading state.</td>
+          <td><code>loading</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Shows a loading indicator on the button.</td>
         </tr>
         <tr>
-          <td><strong>disabled</strong></td>
-          <td>Disables the button interaction.</td>
+          <td><code>disabled</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Disables user interaction with the button.</td>
         </tr>
         <tr>
-          <td><strong>outlined</strong></td>
-          <td>Applies an outlined style to the button.</td>
+          <td><code>outlined</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Displays the button with an outlined style.</td>
         </tr>
         <tr>
-          <td><strong>text</strong></td>
-          <td>Makes the button a text button without a background.</td>
+          <td><code>text</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Renders the button as a text-only button.</td>
         </tr>
         <tr>
-          <td><strong>raised</strong></td>
-          <td>Adds a raised effect to the button.</td>
+          <td><code>raised</code></td>
+          <td><code>boolean</code></td>
+          <td><code>false</code></td>
+          <td>Adds a shadow to give a raised appearance.</td>
         </tr>
         <tr>
-          <td><strong>ariaLabel</strong></td>
-          <td>Provides an accessible name for the button.</td>
+          <td><code>ariaLabel</code></td>
+          <td><code>string</code></td>
+          <td><code>''</code></td>
+          <td>Provides an accessible label for screen readers.</td>
         </tr>
       </tbody>
     </table>
   </div>
 }
+
 
   </div>
 </div>

@@ -1,4 +1,9 @@
 <div class="p-3">
+  <div class="mb-1" style="max-width: 80vw;">
+    <p class="text-muted">
+      Drux Icon is a lightweight wrapper for Bootstrap Icons. You can easily customize the icon, size, and color using class bindings.
+    </p>
+  </div>
   <app-tabs
     class="w-100"
     [tabs]="tabs"
@@ -20,12 +25,11 @@
           class="position-absolute top-0 end-0"
           [code]="iconCode"
         ></app-copy-button>
-    
         <pre class="bg-light rounded border d-flex align-items-center ps-3 pe-5 m-0 h-100 overflow-auto">
           <code class="language-html fs-6 m-0">{{ iconCode }}</code>
         </pre>
       </div>
-    } 
+    }
 
     @if (activeTab === 'variants') {
       <h5>Icon Variants</h5>
@@ -67,6 +71,36 @@
             <td>Large Star</td>
             <td><dr-icon name="bi bi-star" size="lg" class="text-primary"></dr-icon></td>
             <td><code>size="lg"</code></td>
+          </tr>
+        </tbody>
+      </table>
+    }
+
+    @if (activeTab === 'api') {
+      <h5>DruxIcon API</h5>
+      <table class="table table-bordered w-100">
+        <thead>
+          <tr>
+            <th>Input</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>name</code></td>
+            <td><code>string</code></td>
+            <td>Name of the Bootstrap Icon to render. Ex: <code>bi bi-check-circle</code>.</td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>'sm' | 'md' | 'lg'</code></td>
+            <td>Sets the icon size. Small (`sm`), Medium (`md`), or Large (`lg`).</td>
+          </tr>
+          <tr>
+            <td><code>[class]</code></td>
+            <td><code>string</code></td>
+            <td>Any additional CSS classes for styling (e.g., <code>text-primary</code>).</td>
           </tr>
         </tbody>
       </table>

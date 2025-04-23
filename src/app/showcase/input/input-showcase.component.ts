@@ -16,6 +16,7 @@ export class InputShowcaseComponent {
     { label: 'Preview', value: 'preview' },
     { label: 'Code', value: 'code' },
     { label: 'Variants', value: 'variants' },
+    { label: 'API', value: 'api' },
   ];
 
   inputCode: string = `<dr-input placeholder="Enter text"></dr-input>`;

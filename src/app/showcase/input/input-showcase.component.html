@@ -1,4 +1,10 @@
 <div class="p-3">
+  <div class="mb-1" style="max-width: 80vw;">
+    <p class="text-muted">
+      Drux Input is a customizable form control built on Bootstrap styles. It supports placeholders, labels, disabled state, and more for seamless integration.
+    </p>
+  </div>
+  
     <!-- Tabs Header -->
     <app-tabs
       class="w-100"
@@ -54,6 +60,45 @@
               <td>Disabled</td>
               <td><dr-input placeholder="Disabled" [disabled]="true"></dr-input></td>
               <td><code>[disabled]="true"</code></td>
+            </tr>
+          </tbody>
+        </table>
+      }
+      @if (activeTab === 'api') {
+        <h5>Input API</h5>
+        <table class="table table-bordered w-100">
+          <thead>
+            <tr>
+              <th>Input</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>placeholder</code></td>
+              <td><code>string</code></td>
+              <td><code>''</code></td>
+              <td>Text to show inside the input when it's empty.</td>
+            </tr>
+            <tr>
+              <td><code>disabled</code></td>
+              <td><code>boolean</code></td>
+              <td><code>false</code></td>
+              <td>Disables the input when set to true.</td>
+            </tr>
+            <tr>
+              <td><code>value</code></td>
+              <td><code>string</code></td>
+              <td><code>''</code></td>
+              <td>The input's value (can be used with two-way binding).</td>
+            </tr>
+            <tr>
+              <td><code>type</code></td>
+              <td><code>'text' | 'password' | 'email' | 'number' | ...</code></td>
+              <td><code>'text'</code></td>
+              <td>Defines the type of input.</td>
             </tr>
           </tbody>
         </table>

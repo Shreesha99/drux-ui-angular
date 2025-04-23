@@ -18,6 +18,7 @@ export class IconShowcaseComponent {
     { label: 'Preview', value: 'preview' },
     { label: 'Code', value: 'code' },
     { label: 'Variants', value: 'variants' },
+    { label: 'API', value: 'api' },
   ];
 
   iconCode = `<dr-icon name="check-circle" size="lg" color="success"></dr-icon>`;
