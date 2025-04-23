@@ -1,0 +1,75 @@
+<div class="p-3">
+  <app-tabs
+    class="w-100"
+    [tabs]="tabs"
+    [activeTab]="activeTab"
+    (activeTabChange)="activeTab = $event"
+  ></app-tabs>
+
+  <div class="mt-4 w-100">
+    @if (activeTab === 'preview') {
+      <div class="mb-3">
+        <h5>Success Icon</h5>
+        <dr-icon name="bi bi-check-circle" size="lg" class="text-success"></dr-icon>
+      </div>
+    }
+
+    @if (activeTab === 'code') {
+      <div class="position-relative">
+        <app-copy-button
+          class="position-absolute top-0 end-0 m-2"
+          [code]="iconCode"
+        ></app-copy-button>
+
+        <pre class="bg-light p-3 rounded border">
+          <code class="language-html">{{ iconCode }}</code>
+        </pre>
+      </div>
+    }
+
+    @if (activeTab === 'variants') {
+      <h5>Icon Variants</h5>
+      <table class="table table-bordered w-100">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Icon</th>
+            <th>Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Check</td>
+            <td><dr-icon name="bi bi-check" size="md" class="text-success"></dr-icon></td>
+            <td><code>name="bi bi-check" class="text-success"</code></td>
+          </tr>
+          <tr>
+            <td>Alert</td>
+            <td><dr-icon name="bi bi-exclamation-triangle" size="md" class="text-warning"></dr-icon></td>
+            <td><code>name="bi bi-exclamation-triangle" class="text-warning"</code></td>
+          </tr>
+          <tr>
+            <td>Error</td>
+            <td><dr-icon name="bi bi-x-circle" size="md" class="text-danger"></dr-icon></td>
+            <td><code>name="bi bi-x-circle" class="text-danger"</code></td>
+          </tr>
+          <tr>
+            <td>Info</td>
+            <td><dr-icon name="bi bi-info-circle" size="md" class="text-info"></dr-icon></td>
+            <td><code>name="bi bi-info-circle" class="text-info"</code></td>
+          </tr>
+          <tr>
+            <td>Small Star</td>
+            <td><dr-icon name="bi bi-star" size="sm" class="text-primary"></dr-icon></td>
+            <td><code>size="sm"</code></td>
+          </tr>
+          <tr>
+            <td>Large Star</td>
+            <td><dr-icon name="bi bi-star" size="lg" class="text-primary"></dr-icon></td>
+            <td><code>size="lg"</code></td>
+          </tr>
+        </tbody>
+      </table>
+    }
+  </div>
+</div>
