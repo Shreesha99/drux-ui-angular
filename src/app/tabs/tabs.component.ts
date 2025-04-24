@@ -13,9 +13,7 @@ export class TabsComponent {
   @Output() activeTabChange = new EventEmitter<string>();
   @Input() tabs: { label: string; value: string }[] = [];
 
-  ngOnInit() {
-    console.log('Tabs received:', this.tabs);
-  }
+  ngOnInit() {}
 
   setActiveTab(tabValue: string) {
     this.activeTab = tabValue;
