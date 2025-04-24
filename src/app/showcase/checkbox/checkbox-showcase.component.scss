@@ -1,0 +1,44 @@
+:host {
+    display: block;
+  }
+  
+  h5 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  table code {
+    white-space: nowrap;
+  }
+  
+  pre {
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    overflow-x: auto;
+    margin: 0;
+    height: 50px;
+  }
+  
+  pre code {
+    display: block;
+  }
+  
+  .api-table {
+    border-collapse: collapse;
+  }
+  
+  .api-table th,
+  .api-table td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .api-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+  }
+  
+  .api-table td {
+    text-align: left;
+  }
+  

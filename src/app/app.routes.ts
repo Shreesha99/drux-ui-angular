@@ -7,6 +7,7 @@ import { AccordionShowcaseComponent } from './showcase/accordion/accordion-showc
 import { ErrorComponent } from './showcase/error/error.component';
 import { IconShowcaseComponent } from './showcase/icon/icon-showcase.component';
 import { TextareaShowcaseComponent } from './showcase/textarea/textarea-showcase.component';
+import { CheckboxShowcaseComponent } from './showcase/checkbox/checkbox-showcase.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -15,5 +16,6 @@ export const routes: Routes = [
   { path: 'inputtext', component: InputShowcaseComponent },
   { path: 'icon', component: IconShowcaseComponent },
   { path: 'textarea', component: TextareaShowcaseComponent },
+  { path: 'checkbox', component: CheckboxShowcaseComponent },
   { path: '**', component: ErrorComponent },
 ];

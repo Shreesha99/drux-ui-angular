@@ -1,0 +1,121 @@
+<div class="p-3">
+    <div class="mb-1" style="max-width: 80vw;">
+      <p>
+        Drux Checkbox is a customizable checkbox component with support for label, validation, and dynamic model binding.
+      </p>
+    </div>
+    <app-tabs
+      class="w-100"
+      [tabs]="tabs"
+      [activeTab]="activeTab"
+      (activeTabChange)="activeTab = $event"
+    ></app-tabs>
+  
+    <div class="mt-4 w-100">
+      <!-- Preview Tab -->
+      @if (activeTab === 'preview') {
+        <div class="mb-3">
+          <h5>Checkbox</h5>
+          <dr-checkbox
+          label="Accept Terms" 
+          [(model)]="requiredModel"
+          label="Required Checkbox"
+          [disabled]="false" 
+          [required]="true"
+          [error]="requiredModel ? '' : 'This field is required.'"
+        ></dr-checkbox>
+        </div>
+      }
+  
+      <!-- Code Tab -->
+      @if (activeTab === 'code') {
+        <div class="position-relative" style="height: 50px;">
+          <app-copy-button
+            class="position-absolute top-0 end-0"
+            [code]="checkboxCode"
+          ></app-copy-button>
+          <pre class="bg-gray rounded border d-flex align-items-center ps-3 pe-5 m-0 h-100 overflow-auto">
+            <code class="language-html fs-6 m-0 text-black">{{ checkboxCode }}</code>
+          </pre>
+        </div>
+      }
+  
+      <!-- Variants Tab -->
+      @if (activeTab === 'variants') {
+        <h5>Checkbox Variants</h5>
+        <table class="table table-bordered w-100">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Checkbox</th>
+              <th>Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Standard</td>
+              <td><dr-checkbox label="Accept Terms" [(model)]="checkboxModel"></dr-checkbox></td>
+              <td><code>label="Accept Terms"</code></td>
+            </tr>
+            <tr>
+              <td>Disabled</td>
+              <td><dr-checkbox label="Accept Terms" [(model)]="disabledModel" [disabled]="true"></dr-checkbox></td>
+              <td><code>[disabled]="true"</code></td>
+            </tr>
+            <tr>
+              <td>Required</td>
+              <td><dr-checkbox label="Accept Terms" [(model)]="checkboxModel" [required]="true"></dr-checkbox></td>
+              <td><code>[required]="true"</code></td>
+            </tr>
+            <tr>
+              <td>With Error</td>
+              <td><dr-checkbox label="Accept Terms" [(model)]="checkboxModel" [error]="'This field is required'"></dr-checkbox></td>
+              <td><code>[error]="'This field is required'"</code></td>
+            </tr>
+          </tbody>
+        </table>
+      }
+  
+      <!-- API Tab -->
+      @if (activeTab === 'api') {
+        <h5>DruxCheckbox API</h5>
+        <table class="table table-bordered w-100">
+          <thead>
+            <tr>
+              <th>Input</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>label</code></td>
+              <td><code>string</code></td>
+              <td>The label text for the checkbox.</td>
+            </tr>
+            <tr>
+              <td><code>[model]</code></td>
+              <td><code>boolean</code></td>
+              <td>Two-way bound model for the checkbox state (checked or unchecked).</td>
+            </tr>
+            <tr>
+              <td><code>[disabled]</code></td>
+              <td><code>boolean</code></td>
+              <td>Disables the checkbox if set to true.</td>
+            </tr>
+            <tr>
+              <td><code>[required]</code></td>
+              <td><code>boolean</code></td>
+              <td>Marks the checkbox as required (used for validation).</td>
+            </tr>
+            <tr>
+              <td><code>[error]</code></td>
+              <td><code>string</code></td>
+              <td>Displays an error message if set.</td>
+            </tr>
+          </tbody>
+        </table>
+      }
+    </div>
+  </div>
+  
