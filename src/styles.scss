@@ -28,3 +28,13 @@ body.dark-theme {
 .light-theme .navbar {
   background-color: #f8f9fa; /* Light navbar */
 }
+
+input::placeholder {
+  color: #6c757d; // Light theme placeholder
+  opacity: 1; // Ensures the color is fully visible
+}
+
+.dark-mode input::placeholder {
+  color: #adb5bd; // Softer gray for dark mode
+}
+
